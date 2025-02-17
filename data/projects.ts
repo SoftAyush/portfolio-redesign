@@ -20,14 +20,14 @@ export const projects: Project[] = [
                 src: "/assets/portfolio/app-1.avif",
                 caption: "Dashboard with daily activity summary",
             },
-            {
-                src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
-                caption: "Workout tracking interface",
-            },
-            {
-                src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
-                caption: "Nutrition logging and analysis",
-            },
+            // {
+            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
+            //     caption: "Workout tracking interface",
+            // },
+            // {
+            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
+            //     caption: "Nutrition logging and analysis",
+            // },
         ],
     },
     {
@@ -51,14 +51,14 @@ export const projects: Project[] = [
                 src: "/assets/portfolio/App.avif",
                 caption: "Dashboard with daily activity summary",
             },
-            {
-                src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
-                caption: "Workout tracking interface",
-            },
-            {
-                src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
-                caption: "Nutrition logging and analysis",
-            },
+            // {
+            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
+            //     caption: "Workout tracking interface",
+            // },
+            // {
+            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
+            //     caption: "Nutrition logging and analysis",
+            // },
         ],
     },
     {
@@ -76,14 +76,14 @@ export const projects: Project[] = [
                 src: "/assets/portfolio/project-web-1.avif",
                 caption: "Dashboard with daily activity summary",
             },
-            {
-                src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
-                caption: "Workout tracking interface",
-            },
-            {
-                src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
-                caption: "Nutrition logging and analysis",
-            },
+            // {
+            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
+            //     caption: "Workout tracking interface",
+            // },
+            // {
+            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
+            //     caption: "Nutrition logging and analysis",
+            // },
         ],
     },
     {
@@ -105,14 +105,14 @@ export const projects: Project[] = [
                 src: "/assets/portfolio/project-web-4.avif",
                 caption: "Dashboard with daily activity summary",
             },
-            {
-                src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
-                caption: "Workout tracking interface",
-            },
-            {
-                src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
-                caption: "Nutrition logging and analysis",
-            },
+            // {
+            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
+            //     caption: "Workout tracking interface",
+            // },
+            // {
+            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
+            //     caption: "Nutrition logging and analysis",
+            // },
         ],
     },
 ];

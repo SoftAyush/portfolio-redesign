@@ -14,7 +14,7 @@ const routes = [
   { name: "Home", path: "/", icon: Home },
   { name: "About", path: "/about", icon: User },
   { name: "Portfolio", path: "/portfolio", icon: Briefcase },
-  // { name: "Blog", path: "/blog", icon: BookOpen },
+  { name: "Blog", path: "/blog", icon: BookOpen },
   { name: "Contact", path: "/contact", icon: Mail },
 ]
 

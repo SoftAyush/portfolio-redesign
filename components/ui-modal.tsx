@@ -32,7 +32,7 @@ export function UIModal({ isOpen, onClose, title, images }: UIModalProps) {
           modules={[Navigation, Pagination]}
           navigation
           pagination={{ clickable: true, el: ".swiper-pagination", }}
-          className="w-full h-[800px]"
+          className="w-full h-[650px]"
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>

@@ -7,6 +7,7 @@ interface OtherBlogPostsProps {
     date: string
     category: string
     excerpt: string
+    image: string
   }[]
 }
 

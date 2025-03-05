@@ -61,7 +61,8 @@ export default function ContactPage() {
         setIsSubmitting(true);
 
         // Access form data directly from event.target.elements
-        const formData = new FormData(event.target as HTMLFormElement);
+        const form = event.target as HTMLFormElement
+        const formData = new FormData(form)
         const data = {
             name: formData.get("name"),
             email: formData.get("email"),
@@ -69,28 +70,27 @@ export default function ContactPage() {
             message: formData.get("message"),
         };
 
-        console.log('Form Data:', data);  // Ensure you're getting the correct data
+        // console.log('Form Data:', data);  // Ensure you're getting the correct data
 
         try {
             const response = await fetch("/api/send-email", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(data),
             });
 
             if (!response.ok) throw new Error("Failed to send email");
 
             const result = await response.json();
-            console.log(result);
-            await Swal.fire("Success!", "Your message has been sent!", "success");
+            // console.log(result);
+            form.reset();
+            await Swal.fire("Success!", "There was an issue sending your message. Please try again later.", "success");
         } catch (error) {
             await Swal.fire("Error!", "Failed to send message.", "error");
         }
 
         setIsSubmitting(false);
     };
-
-
 
 
     return (
@@ -183,7 +183,8 @@ export default function ContactPage() {
                                             >
                                                 Email
                                             </label>
-                                            <Input id="email" type="email" name="email" placeholder="Your Email" required/>
+                                            <Input id="email" type="email" name="email" placeholder="Your Email"
+                                                   required/>
                                         </div>
                                         <div className="space-y-2">
                                             <label

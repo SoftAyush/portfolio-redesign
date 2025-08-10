@@ -66,20 +66,20 @@ export const projects: Project[] = [
         title: "Match Making Dating Website",
         description: "A web-based dating platform designed to help users find meaningful connections with features like love stories, profile browsing, and relationship tips.",
         type: "Web",
-        image: "/assets/portfolio/project-web-1.avif",
+        image: "/assets/portfolio/datingSite/project-web-1.avif",
         technologies: ["Laravel", "Bootstrap", "Php", "MySql"],
         features: ["Read heartwarming love stories", "Browse and connect with potential matches", "Update and customize your profile", "Receive expert relationship tips"],
 
         github: "https://github.com/SoftAyush/MatchMaking",
         uiImages: [
             {
-                src: "/assets/portfolio/project-web-1.avif",
-                caption: "Dashboard with daily activity summary",
+                src: "/assets/portfolio/datingSite/project-web-1.avif",
+                caption: "Dashboard of Match Making Dating Website",
             },
-            // {
-            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
-            //     caption: "Workout tracking interface",
-            // },
+            {
+                src: "/assets/portfolio/datingSite/Picture1.avif",
+                caption: "Profile Page Of Match Making Dating Website",
+            },
             // {
             //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
             //     caption: "Nutrition logging and analysis",
@@ -91,7 +91,7 @@ export const projects: Project[] = [
         title: "Online Food Ordering System",
         description: "A web-based food ordering system that enables restaurants to manage their menus and customers to browse, order, and enjoy their favorite meals with ease.",
         type: "Web",
-        image: "/assets/portfolio/project-web-4.avif",
+        image: "/assets/portfolio/foodWeb/project-web-4.avif",
         technologies: ["Php", "MySql", "Bootstrap",],
         features: [
             "Add and manage your restaurant profile",
@@ -102,7 +102,7 @@ export const projects: Project[] = [
         github: "https://github.com/SoftAyush/Foodweb",
         uiImages: [
             {
-                src: "/assets/portfolio/project-web-4.avif",
+                src: "/assets/portfolio/foodWeb/project-web-4.avif",
                 caption: "Dashboard with daily activity summary",
             },
             // {

@@ -18,8 +18,12 @@ This is my personal portfolio built with React. It showcases my skills, projects
    ```bash
    npm install
    ```
+4. **Install dependencies:**
+   ```bash
+   npm run build
+   ```
 
-4. **Start the development server:**
+5. **Start the development server:**
    ```bash
    npm start
    ```

@@ -72,6 +72,123 @@ export async function POST(req: Request) {
             subject: `Contact Form: ${subject}`,
             text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
         });
+        await transporter.sendMail({
+            from: `"${name}" <${email}>`,
+            to: "ayushtimalsina2002@gmail.com",
+            subject: `📩 Contact Form: ${subject}`,
+            html: `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f4f4f4;
+                padding: 20px;
+                margin: 0;
+            }
+            .container {
+                max-width: 600px;
+                background: #ffffff;
+                border-radius: 8px;
+                overflow: hidden;
+                margin: 0 auto;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            .header {
+                background: linear-gradient(135deg, #6e8efb, #a777e3);
+                color: white;
+                text-align: center;
+                padding: 20px;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 20px;
+            }
+            .content {
+                padding: 25px;
+                color: #333;
+            }
+            .row {
+                margin-bottom: 15px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 10px;
+            }
+            .label {
+                font-weight: bold;
+                color: #6e8efb;
+                display: block;
+                margin-bottom: 5px;
+            }
+            .message {
+                background: #f5f7ff;
+                padding: 15px;
+                border-radius: 6px;
+                border-left: 4px solid #6e8efb;
+                margin-top: 15px;
+            }
+            .footer {
+                background: #f5f5f5;
+                font-size: 12px;
+                text-align: center;
+                padding: 12px;
+                color: #777;
+            }
+            a {
+                color: #6e8efb;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>New Contact Form Submission</h1>
+                <p>You have received a new message from your website</p>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <span class="label">Subject</span>
+                    <span>${subject}</span>
+                </div>
+                <div class="row">
+                    <span class="label">From</span>
+                    <span>${name}</span>
+                </div>
+                <div class="row">
+                    <span class="label">Email</span>
+                    <a href="mailto:${email}">${email}</a>
+                </div>
+                <div class="message">
+                    <span class="label">Message</span>
+                    <p>${message}</p>
+                </div>
+            </div>
+            <div class="footer">
+                This email was sent from your website's contact form.  
+                Please do not reply directly to this email.
+            </div>
+        </div>
+    </body>
+    </html>
+    `,
+            text: `
+    New Contact Form Submission
+    ==========================
+    Subject: ${subject}
+    From: ${name}
+    Email: ${email}
+
+    Message:
+    ${message}
+
+    ---
+    This email was sent from your website's contact form.
+    `
+        });
+
 
         return NextResponse.json({ success: true, message: "Email sent successfully" });
     } catch (error) {

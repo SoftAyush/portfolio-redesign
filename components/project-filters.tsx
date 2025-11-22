@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { useProjectFilter } from "@/hooks/use-project-filter"
 
-const filters = ["All", "Flutter", "Android", "Web"] as const
+const filters = ["All", "Flutter", "Native Android", "Web",] as const
 
 export function ProjectFilters() {
   const { activeFilter, setActiveFilter } = useProjectFilter()

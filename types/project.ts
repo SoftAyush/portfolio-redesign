@@ -2,7 +2,7 @@ export interface Project {
   id: string
   title: string
   description: string
-  type: "Flutter" | "Android" | "Web"
+  type: "Flutter" | "Native Android" | "Web"
   image: string
   technologies: string[]
   features: string[]
@@ -11,5 +11,6 @@ export interface Project {
     src: string
     caption: string
   }[]
+  liveDemo: any,
 }
 

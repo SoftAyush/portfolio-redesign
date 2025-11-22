@@ -2,7 +2,78 @@ import type {Project} from "@/types/project"
 
 export const projects: Project[] = [
     {
-        id: "1",
+        id: "6",
+        title: "Aapanam",
+        description: "Aapanam is a modern, cross-platform inventory and sales management system built with Kotlin Multiplatform. It aims to provide a seamless experience for managing products, tracking sales, and handling credit accounts across various platforms.",
+        type: "Native Android",
+        image: "/assets/portfolio/Aapanam/logo.avif",
+        technologies: ["Kotlin", "MVVM", 'SQLDelight', 'FireBase'],
+        features: [
+            "Inventory management with product add/edit/delete, stock tracking, and category organization",
+            "Sales Tracking: Manage paid and credit sales",
+            "Link sales to customer IDs for comprehensive tracking",
+            "Intuitive and responsive user interface powered by Compose Multiplatform.",
+            "View various reports related to sales, stock, and credit"
+        ],
+        github: "https://github.com/SoftAyush/Aapanam",
+        uiImages: [
+            {
+                src: "/assets/portfolio/Aapanam/login.avif",
+                caption: "A smooth and secure sign-in experience, simple, elegant, and user-focused.",
+            },
+            {
+                src: "/assets/portfolio/Aapanam/Dashboard.avif",
+                caption: "Smart, Minimal, Powerful, Business analytics made simple.",
+            },
+            {
+                src: "/assets/portfolio/Aapanam/inventory.avif",
+                caption: "Nutrition logging and analysis",
+            },
+            {
+                src: "/assets/portfolio/Aapanam/Sale.avif",
+                caption: "Nutrition logging and analysis",
+            },
+            {
+                src: "/assets/portfolio/Aapanam/setting.avif",
+                caption: "Nutrition logging and analysis",
+            },
+        ],
+        liveDemo: null,
+    },
+    {
+        id: "5",
+        title: "Flutter Multi Selector Package",
+        description: "It is a powerful Flutter package that provides an intuitive multi-selection\n" +
+            "dialog with advanced customization options.",
+        type: "Flutter",
+        image: "/assets/portfolio/Package/flutterMultiSelector.avif",
+        technologies: ["Flutter", "Dart", 'Package'],
+        features: [
+            "Custom multi-select dialog field widget",
+            "Supports form validation with error messages",
+            "Searchable list of selectable items",
+            "Select All / Deselect All functionality",
+            "Initial value support for pre-selected items"
+        ],
+        github: "https://github.com/SoftAyush/flutter_multi_selector",
+        uiImages: [
+            {
+                src: "/assets/portfolio/Package/flutterMultiSelector.avif",
+                caption: "flutter_multi_selector — a small package making a big impact. Proud to see my work helping Flutter devs worldwide.",
+            },
+            // {
+            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
+            //     caption: "Workout tracking interface",
+            // },
+            // {
+            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
+            //     caption: "Nutrition logging and analysis",
+            // },
+        ],
+        liveDemo: 'https://pub.dev/packages/flutter_multi_selector',
+    },
+    {
+        id: "4",
         title: "Kosh-Guard",
         description: "A personal finance management app that helps users track income, expenses, and savings, providing insights for better financial control and planning.",
         type: "Flutter",
@@ -18,7 +89,7 @@ export const projects: Project[] = [
         uiImages: [
             {
                 src: "/assets/portfolio/app-1.avif",
-                caption: "Dashboard with daily activity summary",
+                caption: "Login Page of KoshGuard Mobile Application.",
             },
             // {
             //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
@@ -29,12 +100,13 @@ export const projects: Project[] = [
             //     caption: "Nutrition logging and analysis",
             // },
         ],
+        liveDemo: null,
     },
     {
-        id: "2",
+        id: "3",
         title: "Banter",
         description: "A social messaging app that enables users to connect, chat, and share moments seamlessly with a secure and interactive experience.",
-        type: "Android",
+        type: "Native Android",
         image: "/assets/portfolio/App.avif",
         technologies: ["Java Native", "xml", 'FireBase'],
         features: [
@@ -60,9 +132,10 @@ export const projects: Project[] = [
             //     caption: "Nutrition logging and analysis",
             // },
         ],
+        liveDemo: null,
     },
     {
-        id: "3",
+        id: "2",
         title: "Match Making Dating Website",
         description: "A web-based dating platform designed to help users find meaningful connections with features like love stories, profile browsing, and relationship tips.",
         type: "Web",
@@ -85,9 +158,10 @@ export const projects: Project[] = [
             //     caption: "Nutrition logging and analysis",
             // },
         ],
+        liveDemo: null,
     },
     {
-        id: "4",
+        id: "1",
         title: "Online Food Ordering System",
         description: "A web-based food ordering system that enables restaurants to manage their menus and customers to browse, order, and enjoy their favorite meals with ease.",
         type: "Web",
@@ -114,6 +188,7 @@ export const projects: Project[] = [
             //     caption: "Nutrition logging and analysis",
             // },
         ],
+        liveDemo: null,
     },
 ];
 

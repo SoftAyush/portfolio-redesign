@@ -2,7 +2,7 @@
 
 import { create } from "zustand"
 
-type Filter = "All"| "Flutter" | "Android" | "Web"
+type Filter = "All"| "Flutter" | "Native Android" | "Web"
 
 interface ProjectFilterStore {
   activeFilter: Filter

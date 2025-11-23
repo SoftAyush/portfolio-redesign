@@ -6,7 +6,7 @@ export interface Project {
   image: string
   technologies: string[]
   features: string[]
-  github: string
+  github: any
   uiImages: {
     src: string
     caption: string

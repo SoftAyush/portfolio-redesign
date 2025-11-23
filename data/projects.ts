@@ -7,7 +7,7 @@ export const projects: Project[] = [
         description: "Aapanam is a modern, cross-platform inventory and sales management system built with Kotlin Multiplatform. It aims to provide a seamless experience for managing products, tracking sales, and handling credit accounts across various platforms.",
         type: "Native Android",
         image: "/assets/portfolio/Aapanam/logo.avif",
-        technologies: ["Kotlin", "MVVM", 'SQLDelight', 'FireBase'],
+        technologies: ["Kotlin", "MVVM", 'SQLDelight', 'FireBase', 'Compose Multiplatform'],
         features: [
             "Inventory management with product add/edit/delete, stock tracking, and category organization",
             "Sales Tracking: Manage paid and credit sales",
@@ -15,7 +15,7 @@ export const projects: Project[] = [
             "Intuitive and responsive user interface powered by Compose Multiplatform.",
             "View various reports related to sales, stock, and credit"
         ],
-        github: "https://github.com/SoftAyush/Aapanam",
+        github: null,
         uiImages: [
             {
                 src: "/assets/portfolio/Aapanam/login.avif",
@@ -27,18 +27,18 @@ export const projects: Project[] = [
             },
             {
                 src: "/assets/portfolio/Aapanam/inventory.avif",
-                caption: "Nutrition logging and analysis",
+                caption: "Stay organized with a clear view of all your products add, edit, and manage your stock effortlessly.",
             },
             {
                 src: "/assets/portfolio/Aapanam/Sale.avif",
-                caption: "Nutrition logging and analysis",
+                caption: "Track every sale with ease monitor revenue, profit, and transaction history in one place.",
             },
             {
                 src: "/assets/portfolio/Aapanam/setting.avif",
-                caption: "Nutrition logging and analysis",
+                caption: "Customize your experience adjust appearance, manage data, and fine-tune app preferences seamlessly",
             },
         ],
-        liveDemo: null,
+        liveDemo: "https://appdistribution.firebase.dev/i/26eb290618831dde",
     },
     {
         id: "5",

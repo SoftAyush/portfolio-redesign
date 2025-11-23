@@ -53,12 +53,14 @@ export function ProjectCard({project}: ProjectCardProps) {
                     <Eye className="mr-2 h-4 w-4"/>
                     View UI
                 </Button>
+                {project.github && (
                 <Button variant="outline" asChild>
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <GithubIcon className="mr-2 h-4 w-4"/>
                         Source
                     </a>
                 </Button>
+                )}
                 {project.liveDemo && (
                     <Button variant="outline" asChild>
                         <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">

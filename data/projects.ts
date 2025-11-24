@@ -26,7 +26,7 @@ export const projects: Project[] = [
                 caption: "Smart, Minimal, Powerful, Business analytics made simple.",
             },
             {
-                src: "/assets/portfolio/Aapanam/inventory.avif",
+                src: "/assets/portfolio/Aapanam/Inventory.avif",
                 caption: "Stay organized with a clear view of all your products add, edit, and manage your stock effortlessly.",
             },
             {

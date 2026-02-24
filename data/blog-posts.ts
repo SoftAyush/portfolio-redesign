@@ -1,87 +1,49 @@
 export const blogPosts = [
   {
-    title: "Getting Started with React Native",
-    slug: "getting-started-react-native",
-    date: "2023-05-15",
-    category: "react-native",
-    excerpt: "Learn the basics of React Native and start building your first mobile app.",
-    image: "/placeholder.svg?height=300&width=400&text=React+Native",
+    title: "The Shift to Kotlin Multiplatform (KMP): Why It's Reshaping Mobile Strategy",
+    slug: "shift-to-kotlin-multiplatform-kmp",
+    date: "2025-06-24",
+    category: "mobile-architecture",
+    excerpt: "Explore how Kotlin Multiplatform is moving beyond experimental phases to become a core strategy for enterprises seeking code sharing without compromising native performance.",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
     content: `
-      <h1>Getting Started with React Native</h1>
-      <p>React Native is a popular framework for building mobile applications using React and JavaScript. Here's a quick guide to get started:</p>
-      <ol>
-        <li>Install Node.js and npm</li>
-        <li>Install the React Native CLI: <code>npm install -g react-native-cli</code></li>
-        <li>Create a new project: <code>react-native init MyFirstApp</code></li>
-        <li>Navigate to your project: <code>cd MyFirstApp</code></li>
-        <li>Start the development server: <code>react-native start</code></li>
-        <li>Run your app: <code>react-native run-ios</code> or <code>react-native run-android</code></li>
-      </ol>
-      <p>Happy coding!</p>
+      <h2>Beyond Cross-Platform: The KMP Advantage</h2>
+      <p>For years, the mobile world has been divided between native development and cross-platform frameworks like Flutter and React Native. While these frameworks have their place, they often require trade-offs in performance or require a "lowest common denominator" approach to UI. Kotlin Multiplatform (KMP) changes the conversation.</p>
+      
+      <h3>1. Shared Logic, Native Identity</h3>
+      <p>Unlike Flutter, which draws every pixel on its own, KMP focuses solely on sharing the business logic—networking, data persistence, and computational heavy lifting—while leaving the UI to be built using native toolkits like SwiftUI for iOS and Jetpack Compose for Android.</p>
+      
+      <h3>2. Reduced Risk and Technical Debt</h3>
+      <p>By using Kotlin—a language already beloved by Android developers—teams can gradually migrate existing logic. You don't have to rewrite your entire app; you can start by sharing a single data model or API client.</p>
+      
+      <h3>3. Performance Without Compromise</h3>
+      <p>Since the shared code compiles to native binaries for each platform, there's no bridge or virtual machine overhead. Your iOS app is still a native iOS app at its core.</p>
+      
+      <p>As we move into 2024, KMP is no longer just "experimental." It's a production-ready solution that empowers small teams to build world-class apps at twice the speed without sacrificing quality.</p>
     `,
   },
   {
-    title: "Flutter vs React Native",
-    slug: "flutter-vs-react-native",
-    date: "2023-06-02",
-    category: "mobile",
-    excerpt: "Compare the pros and cons of Flutter and React Native for mobile app development.",
-    image: "/placeholder.svg?height=300&width=400&text=Flutter+vs+React+Native",
+    title: "Flutter vs. Kotlin Multiplatform: Choosing the Right Weapon for 2024",
+    slug: "flutter-vs-kotlin-multiplatform",
+    date: "2025-03-05",
+    category: "cross-platform",
+    excerpt: "A deep dive into the two giants of modern mobile development. Should you share UI or share logic? Let's break down the strategy.",
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1974&auto=format&fit=crop",
     content: `
-      <h1>Flutter vs React Native</h1>
-      <p>When choosing a framework for mobile app development, Flutter and React Native are popular options. Here's a quick comparison:</p>
-      <h2>Flutter</h2>
-      <ul>
-        <li>Pros: Fast performance, consistent UI across platforms</li>
-        <li>Cons: Larger app size, less mature ecosystem</li>
-      </ul>
-      <h2>React Native</h2>
-      <ul>
-        <li>Pros: Large community, use of JavaScript</li>
-        <li>Cons: Performance issues with complex apps, inconsistent UI</li>
-      </ul>
-      <p>Choose the framework that best fits your project requirements and team expertise.</p>
-    `,
-  },
-  {
-    title: "iOS App Store Optimization Tips",
-    slug: "ios-app-store-optimization",
-    date: "2023-07-10",
-    category: "ios",
-    excerpt: "Learn how to improve your iOS app's visibility on the App Store.",
-    image: "/placeholder.svg?height=300&width=400&text=iOS+App+Store+Optimization",
-    content: `
-      <h1>iOS App Store Optimization Tips</h1>
-      <p>Improve your iOS app's visibility with these App Store Optimization (ASO) tips:</p>
-      <ol>
-        <li>Use relevant keywords in your app title and description</li>
-        <li>Create an eye-catching app icon</li>
-        <li>Include high-quality screenshots and app previews</li>
-        <li>Encourage positive reviews and ratings</li>
-        <li>Localize your app for different markets</li>
-        <li>Regularly update your app with new features and bug fixes</li>
-      </ol>
-      <p>Implement these strategies to increase your app's discoverability and downloads.</p>
-    `,
-  },
-  {
-    title: "Introduction to SwiftUI",
-    slug: "introduction-to-swiftui",
-    date: "2023-08-20",
-    category: "ios",
-    excerpt: "Get started with SwiftUI, Apple's modern framework for building user interfaces.",
-    image: "/placeholder.svg?height=300&width=400&text=SwiftUI+Introduction",
-    content: `
-      <h1>Introduction to SwiftUI</h1>
-      <p>SwiftUI is Apple's modern framework for building user interfaces across all Apple platforms. Here's a quick introduction:</p>
-      <ol>
-        <li>Declarative syntax: Describe your UI using simple and intuitive Swift code</li>
-        <li>Live previews: See your changes in real-time as you code</li>
-        <li>Automatic support for Dynamic Type, Dark Mode, and localization</li>
-        <li>Compositional approach: Build complex UIs by combining small, reusable views</li>
-        <li>Cross-platform: Use the same UI code across iOS, macOS, watchOS, and tvOS</li>
-      </ol>
-      <p>Start building beautiful and responsive UIs with SwiftUI today!</p>
+      <h2>The Great Divide: UI vs. Logic</h2>
+      <p>The debate between Flutter and Kotlin Multiplatform (KMP) isn't just about programming languages; it's about architectural philosophy. One asks you to share your entire UI, while the other asks you to share only your business logic.</p>
+      
+      <h3>1. Flutter: The Speed of UI</h3>
+      <p>Flutter's biggest advantage remains its unmatched development speed for UI-rich applications. With its own rendering engine (Canvas/Skia/Impeller), what you see on iOS is exactly what you get on Android. It's the perfect choice for teams that need high-fidelity brand consistency across platforms without maintaining multiple UI codebases.</p>
+      
+      <h3>2. KMP: The Native purist's Choice</h3>
+      <p>Kotlin Multiplatform takes a different route. It doesn't touch the UI. Instead, it lets you share your core business logic—data layers, API clients, and computational models—while giving you 100% control over the native UI layer. This means your iOS app uses SwiftUI and your Android app uses Jetpack Compose.</p>
+      
+      <h3>3. Performance and Integration</h3>
+      <p>While Flutter is fast, KMP is native. Because KMP compiles to native binaries for each platform, there's no runtime overhead. Furthermore, KMP integrates seamlessly into existing native codebases, making it the preferred choice for enterprise apps that are migrating gradually.</p>
+      
+      <h3>Conclusion</h3>
+      <p>Choose <strong>Flutter</strong> if you want to ship a beautiful, UI-heavy app quickly with a single team. Choose <strong>KMP</strong> if you demand uncompromised native performance, want to leverage native UI capabilities, or need to share logic in a large, existing native ecosystem.</p>
     `,
   },
 ]

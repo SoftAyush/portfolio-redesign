@@ -1,66 +1,22 @@
 "use client"
 
-import {useState} from "react"
-import {Button} from "@/components/ui/button"
-import {Input} from "@/components/ui/input"
-import {Textarea} from "@/components/ui/textarea"
-import {useToast} from "@/components/ui/use-toast"
-import {MapPin, Mail, Phone, Send} from "lucide-react"
-import {motion} from "framer-motion"
-import {Card, CardContent} from "@/components/ui/card"
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { useToast } from "@/components/ui/use-toast"
+import { MapPin, Mail, Phone, Send } from "lucide-react"
+import { motion } from "framer-motion"
+import { Card, CardContent } from "@/components/ui/card"
 import Swal from 'sweetalert2';
 
 export default function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false)
-    const {toast} = useToast()
 
-    // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    //   event.preventDefault()
-    //   setIsSubmitting(true)
-    //   // Simulate form submission to Formspree
-    //   const form = event.target as HTMLFormElement
-    //   const formData = new FormData(form)
-    //   try {
-    //     const response = await fetch('https://formspree.io/f/xyyvryov', {
-    //       method: 'POST',
-    //       body: formData,
-    //       mode: 'no-cors', // Add this line
-    //
-    //     });
-    //     const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    //
-    //     form.reset();
-    //     await Swal.fire({
-    //       title: "Message Sent!",
-    //       text: "Thank you for your message. I'll get back to you soon.",
-    //       icon: "success",
-    //       confirmButtonText: "OK",
-    //       customClass: {
-    //         popup: "dark:bg-gray-900 dark:text-white bg-white text-black",
-    //       },
-    //     });
-    //
-    //
-    //   } catch (error) {
-    //     await Swal.fire({
-    //       title: "Error!",
-    //       text: "There was an issue sending your message. Please try again later.",
-    //       icon: "error",
-    //       confirmButtonText: "OK",
-    //       customClass: {
-    //         popup: "dark:bg-gray-900 dark:text-white bg-white text-black",
-    //       },
-    //     });
-    //   }
-    //
-    //
-    //   setIsSubmitting(false)
-    // }
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsSubmitting(true);
 
-        // Access form data directly from event.target.elements
         const form = event.target as HTMLFormElement
         const formData = new FormData(form)
         const data = {
@@ -70,23 +26,24 @@ export default function ContactPage() {
             message: formData.get("message"),
         };
 
-        // console.log('Form Data:', data);  // Ensure you're getting the correct data
-
         try {
             const response = await fetch("/api/send-email", {
                 method: "POST",
-                headers: {"Content-Type": "application/json"},
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
             });
 
             if (!response.ok) throw new Error("Failed to send email");
 
-            const result = await response.json();
-            // console.log(result);
             form.reset();
-            await Swal.fire("Success!", "There was an issue sending your message. Please try again later.", "success");
+            await Swal.fire({
+                title: "Inquiry Sent",
+                text: "Thank you for reaching out. I will review your request and get back to you within 24 hours.",
+                icon: "success",
+                customClass: { popup: "rounded-[2rem] glass" }
+            });
         } catch (error) {
-            await Swal.fire("Error!", "Failed to send message.", "error");
+            await Swal.fire("Submission Error", "There was an issue sending your message. Please try again or contact me directly via email.", "error");
         }
 
         setIsSubmitting(false);
@@ -94,134 +51,92 @@ export default function ContactPage() {
 
 
     return (
-        <div className="min-h-screen bg-background py-12 md:py-24">
-            <div className="container mx-auto px-4 md:px-6">
-                <motion.div
-                    initial={{opacity: 0, y: 20}}
-                    animate={{opacity: 1, y: 0}}
-                    transition={{duration: 0.5}}
-                    className="space-y-12"
-                >
-                    <div className="text-center">
-                        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Get in Touch</h1>
-                        <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
-                            I'm always open to new opportunities and collaborations. Feel free to reach out!
-                        </p>
-                    </div>
+        <div className="min-h-screen pt-32 pb-20 overflow-hidden">
+            <div className="container mx-auto px-4 md:px-6 lg:px-8">
+                <div className="grid lg:grid-cols-2 gap-20 items-stretch">
 
-                    <div className="grid md:grid-cols-2 gap-8 items-start">
-                        <motion.div
-                            initial={{opacity: 0, x: -20}}
-                            animate={{opacity: 1, x: 0}}
-                            transition={{duration: 0.5, delay: 0.2}}
-                            className="space-y-6"
-                        >
-                            <Card className="border-none">
-                                <CardContent className="p-0">
-                                    <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-                                    <div className="space-y-4">
-                                        <Button variant="outline"
-                                                className="w-full justify-start text-left h-auto py-3">
-                                            <MapPin className="h-5 w-5 text-primary mr-3 flex-shrink-0"/>
-                                            <span>Lalitpur, Nepal</span>
-                                        </Button>
-                                        <Button variant="outline"
-                                                className="w-full justify-start text-left h-auto py-3">
-                                            <Mail className="h-5 w-5 text-primary mr-3 flex-shrink-0"/>
-                                            <a href="mailto:ayushtimalsina2002@gmail.com" className="hover:underline">
-                                                ayushtimalsina2002@gmail.com
-                                            </a>
-                                        </Button>
-                                        <Button variant="outline"
-                                                className="w-full justify-start text-left h-auto py-3">
-                                            <Phone className="h-5 w-5 text-primary mr-3 flex-shrink-0"/>
-                                            <a href="tel:+977-9869030572" className="hover:underline">
-                                                +977-9869030572
-                                            </a>
-                                        </Button>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardContent className="p-0">
-                                    <div className="rounded-lg overflow-hidden h-[300px]">
-                                        <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.31625949266!2d85.29111341878974!3d27.6771825952946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19d3cf18ca51%3A0x2b7185d6e721e4!2sLalitpur%2C%20Nepal!5e0!3m2!1sen!2s!4v1707921548736!5m2!1sen!2s"
-                                            width="100%"
-                                            height="100%"
-                                            style={{border: 0}}
-                                            allowFullScreen
-                                            loading="lazy"
-                                            referrerPolicy="no-referrer-when-downgrade"
-                                        ></iframe>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="flex flex-col justify-between py-4"
+                    >
+                        <div>
+                            <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-6 block">
+                                Initiate Collaboration
+                            </span>
+                            <h1 className="text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter uppercase mb-12">
+                                Start your <br />
+                                <span className="text-muted-foreground/30">Project.</span>
+                            </h1>
+                        </div>
 
-                        <motion.div
-                            initial={{opacity: 0, x: 20}}
-                            animate={{opacity: 1, x: 0}}
-                            transition={{duration: 0.5, delay: 0.4}}
-                        >
-                            <Card>
-                                <CardContent className="p-6">
-                                    <form onSubmit={handleSubmit} className="space-y-6">
-                                        <div className="space-y-2">
-                                            <label
-                                                htmlFor="name"
-                                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                            >
-                                                Name
-                                            </label>
-                                            <Input id="name" name="name" placeholder="Your Name" required/>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label
-                                                htmlFor="email"
-                                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                            >
-                                                Email
-                                            </label>
-                                            <Input id="email" type="email" name="email" placeholder="Your Email"
-                                                   required/>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label
-                                                htmlFor="subject"
-                                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                            >
-                                                Subject
-                                            </label>
-                                            <Input id="subject" name="subject" placeholder="Subject" required/>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label
-                                                htmlFor="message"
-                                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                            >
-                                                Message
-                                            </label>
-                                            <Textarea id="message" name="message" placeholder="Your Message" required
-                                                      className="min-h-[150px]"/>
-                                        </div>
-                                        <Button type="submit" disabled={isSubmitting} className="w-full">
-                                            {isSubmitting ? (
-                                                <>
-                                                    Sending... <Send className="ml-2 h-4 w-4 animate-pulse"/>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    Send Message <Send className="ml-2 h-4 w-4"/>
-                                                </>
-                                            )}
-                                        </Button>
-                                    </form>
-                                </CardContent>
-                            </Card>
-                        </motion.div>
-                    </div>
-                </motion.div>
+                        <div className="space-y-12">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                                <div className="space-y-2">
+                                    <p className="text-sm font-bold uppercase tracking-widest text-primary">Email Official</p>
+                                    <a href="mailto:ayushtimalsina2002@gmail.com" className="text-xl font-bold hover:text-primary transition-colors block">
+                                        ayushtimalsina2002@gmail.com
+                                    </a>
+                                </div>
+                                <div className="space-y-2">
+                                    <p className="text-sm font-bold uppercase tracking-widest text-primary">Phone Direct</p>
+                                    <a href="tel:+9779869030572" className="text-xl font-bold hover:text-primary transition-colors block">
+                                        +977 9869030572
+                                    </a>
+                                </div>
+                                <div className="space-y-2">
+                                    <p className="text-sm font-bold uppercase tracking-widest text-primary">Office Location</p>
+                                    <p className="text-xl font-bold">Lalitpur, Nepal</p>
+                                </div>
+                            </div>
+
+                            <div className="p-10 rounded-[2.5rem] bg-muted/30 border-2 border-dashed border-border/50">
+                                <p className="text-lg text-muted-foreground leading-relaxed italic">
+                                    &ldquo;I specialize in taking complex requirements and turning them into seamless mobile experiences. Whether you have a full brief or just an idea, let&apos;s build it correctly from day one.&rdquo;
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                        <Card className="h-full border-border/50 bg-background rounded-[3rem] p-10 md:p-16 shadow-2xl">
+                            <form onSubmit={handleSubmit} className="flex flex-col h-full gap-10">
+                                <div className="space-y-10">
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Full Name</label>
+                                        <Input name="name" placeholder="John Doe" required className="h-16 rounded-2xl bg-muted/50 border-none px-6 text-lg focus-visible:ring-primary" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Email Address</label>
+                                        <Input name="email" type="email" placeholder="john@example.com" required className="h-16 rounded-2xl bg-muted/50 border-none px-6 text-lg focus-visible:ring-primary" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Service Required</label>
+                                        <Input name="subject" placeholder="Mobile App Development" required className="h-16 rounded-2xl bg-muted/50 border-none px-6 text-lg focus-visible:ring-primary" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Project Details</label>
+                                        <Textarea name="message" placeholder="Briefly describe your project goals..." required className="min-h-[150px] rounded-2xl bg-muted/50 border-none p-6 text-lg focus-visible:ring-primary" />
+                                    </div>
+                                </div>
+
+                                <Button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="h-20 rounded-full text-xl font-bold uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98] transition-all mt-auto shadow-xl"
+                                >
+                                    {isSubmitting ? "Submitting Inquiry..." : "Submit Inquiry"}
+                                </Button>
+                            </form>
+                        </Card>
+                    </motion.div>
+
+                </div>
             </div>
         </div>
     )

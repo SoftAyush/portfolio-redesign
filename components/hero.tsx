@@ -1,123 +1,110 @@
-"use client";
+"use client"
 
-import {Button} from "@/components/ui/button";
-import {motion} from "framer-motion";
-import {ArrowRight, Send, Download, CheckCircle} from "lucide-react";
-import Image from "next/image";
-import {TypeAnimation} from "react-type-animation";
-import Link from "next/link";
-import {useState} from "react";
-import {Skeleton} from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+import { ArrowRight, Download, Mail } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { useState } from "react"
+import { Skeleton } from "@/components/ui/skeleton"
 
 export function Hero() {
-    const [imageLoaded, setImageLoaded] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false)
 
     const handleDownloadCV = () => {
-        const link = document.createElement("a");
-        link.href = "/assets/Ayush-Timalsina-Resume.pdf";
-        link.download = "Ayush-Timalsina-Resume.pdf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
+        const link = document.createElement("a")
+        link.href = "/assets/Ayush-Timalsina-Resume.pdf"
+        link.download = "Ayush-Timalsina-Resume.pdf"
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+    }
 
     return (
-        <section className="relative py-6 md:py-18 overflow-hidden">
-            <div
-                className="absolute inset-0 -z-10 bg-[radial-gradient(45%_45%_at_50%_50%,var(--primary-50)_0%,transparent_100%)] dark:bg-[radial-gradient(45%_45%_at_50%_50%,var(--primary-900)_0%,transparent_100%)] opacity-20"/>
+        <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden">
+            <div className="noise-overlay opacity-[0.02]" />
+            <div className="container mx-auto px-4 md:px-6 lg:px-8">
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <motion.div
-                        initial={{opacity: 0, y: 20}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.5}}
-                        className="flex flex-col gap-4 text-center lg:text-left order-2 lg:order-1"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="flex flex-col gap-8"
                     >
-                        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                            Ayush Timalsina
-                        </h1>
-                        <div className="text-xl sm:text-2xl md:text-3xl text-muted-foreground">
-                            I&apos;m a{" "}
-                            <TypeAnimation
-                                sequence={[
-                                    "Mobile Application Developer",
-                                    2000,
-                                    "Freelancer",
-                                    2000,
-                                ]}
-                                repeat={Number.POSITIVE_INFINITY}
-                                className="text-primary font-semibold"
-                            />
+                        <div>
+                            <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-4 block">
+                                Available for Projects
+                            </span>
+                            <h1 className="text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter uppercase mb-6">
+                                Ayush <br />
+                                <span className="text-muted-foreground/40">Timalsina.</span>
+                            </h1>
+                            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+                                Senior Mobile Engineer & UI Architect. I build high-performance, design-led digital products that scale.
+                            </p>
                         </div>
-                        <p className="text-muted-foreground max-w-[42rem] leading-normal sm:text-xl sm:leading-8 mx-auto lg:mx-0">
-                            Crafting exceptional mobile experiences with clean, well-structured code and creative,
-                            innovative solutions. Specializing in Flutter and native app development to bring your
-                            vision to life with seamless functionality and performance.
-                        </p>
-                        <ul className="text-left space-y-2 mt-4">
-                            <li className="flex items-center gap-2">
-                                <CheckCircle className="text-green-500" size={20}/>
-                                <span>2+ years of mobile development experience</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <CheckCircle className="text-green-500" size={20}/>
-                                <span>Expertise in cross-platform and native technologies</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <CheckCircle className="text-green-500" size={20}/>
-                                <span>Strong focus on user-centric design and performance</span>
-                            </li>
-                        </ul>
-                        <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-                            <Button size="lg" asChild>
+
+                        <div className="flex flex-wrap gap-4">
+                            <Button size="lg" className="h-16 px-8 rounded-full text-lg font-bold group" asChild>
                                 <Link href="/contact">
-                                    <Send className="mr-2 h-4 w-4"/>
-                                    Hire Me
+                                    Let&apos;s Talk
+                                    <Mail className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </Button>
-                            <Button size="lg" variant="outline" onClick={handleDownloadCV}>
-                                <Download className="mr-2 h-4 w-4"/>
-                                Get CV
+                            <Button size="lg" variant="outline" className="h-16 px-8 rounded-full text-lg font-bold" onClick={handleDownloadCV}>
+                                Download CV
+                                <Download className="ml-2 h-5 w-5" />
                             </Button>
-
                         </div>
-                        <Link
-                            href="/portfolio"
-                            className="flex items-center justify-center lg:justify-start hover:text-foreground mt-6 transition-colors"
-                        >
-                            <span>Explore my work</span>
-                            <ArrowRight className="h-4 w-4 ml-1"/>
-                        </Link>
+
+                        <div className="flex items-center gap-8 pt-8 border-t border-border/50">
+                            <div>
+                                <p className="text-2xl font-bold">2+</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Years Experience</p>
+                            </div>
+                            <div>
+                                <p className="text-2xl font-bold">15+</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Projects Delivered</p>
+                            </div>
+                            <div>
+                                <p className="text-2xl font-bold">Nepal</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Based Location</p>
+                            </div>
+                        </div>
                     </motion.div>
 
                     <motion.div
-                        initial={{opacity: 0, scale: 0.9}}
-                        animate={{opacity: 1, scale: 1}}
-                        transition={{duration: 0.5, delay: 0.2}}
-                        className="relative aspect-square max-w-md mx-auto lg:max-w-2xl lg:mr-0 order-1 lg:order-2"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                        className="relative"
                     >
-                        <div
-                            className="absolute inset-0 bg-gradient-to-tr from-primary to-primary-foreground opacity-10 blur-3xl rounded-full"/>
-                        <div
-                            className="relative z-10 overflow-hidden rounded-full border-8 border-background/50 shadow-2xl">
-                            {!imageLoaded && (
-                                <Skeleton className="absolute inset-0 bg-muted"/>
-                            )}
+                        <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[3rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 bg-muted shadow-2xl">
+                            {!imageLoaded && <Skeleton className="absolute inset-0" />}
                             <Image
                                 src="/assets/Aayush.jpg"
-                                alt="Ayush Timalsina Picture"
-                                width={800}
-                                height={800}
-                                className="object-cover w-full h-full"
+                                alt="Ayush Timalsina"
+                                fill
+                                className="object-cover"
                                 priority
                                 onLoad={() => setImageLoaded(true)}
                             />
                         </div>
+
+                        {/* Magnetic Float Element */}
+                        <motion.div
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                            className="absolute -bottom-6 -left-6 md:-left-12 glass p-6 rounded-3xl hidden md:block"
+                        >
+                            <p className="text-sm font-bold uppercase tracking-widest mb-1">Focusing on</p>
+                            <p className="text-xl font-bold">Mobile Engineering</p>
+                        </motion.div>
                     </motion.div>
 
                 </div>
             </div>
         </section>
-    );
+    )
 }

@@ -1,11 +1,11 @@
 import { Hero } from "@/components/hero"
+import { ServicesSection } from "@/components/services-section"
 
 export default function Home() {
   return (
-    <div className="bg-background">
-      <main>
-        <Hero />
-      </main>
+    <div className="flex flex-col">
+      <Hero />
+      <ServicesSection />
     </div>
   )
 }

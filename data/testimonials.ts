@@ -3,13 +3,13 @@ export const testimonials = [
     name: "Sandip Kshetri",
     role: "SEO Specialist, Household Nepal",
     content: " He is an incredible team member! Friendly, highly skilled at coordination, and always striving for improvement. Working with him has been a pleasure, and he consistently goes above and beyond.",
-    avatar:  '/assets/testimonial/testimonials-1.webp',
+    avatar: '/assets/testimonial/testimonials-1.webp',
   },
   {
     name: "Pratik Mishra",
     role: "COO, Coast Technology Pvt. Ltd",
     content: " A fantastic team player! Affable, well-coordinated, and continuously improving. He always goes above and beyond expectations.",
-    avatar:  '/assets/testimonial/testimonials-2.avif',
+    avatar: '/assets/testimonial/testimonials-2.avif',
   },
   {
     name: "Shreeshant Nepal",

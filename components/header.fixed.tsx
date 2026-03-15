@@ -83,7 +83,7 @@ export function Header() {
                                 onMouseLeave={() => setHoveredPath(null)}
                                 className={cn(
                                     "relative px-5 py-2 text-sm font-bold uppercase tracking-widest transition-colors duration-300 rounded-full",
-                                    pathname === route.path ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                                    (route.path === "/" ? pathname === route.path : pathname.startsWith(route.path)) ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
                                 )}
                             >
                                 <AnimatePresence>
@@ -99,7 +99,7 @@ export function Header() {
                                     )}
                                 </AnimatePresence>
 
-                                {pathname === route.path && (
+                                {(route.path === "/" ? pathname === route.path : pathname.startsWith(route.path)) && (
                                     <motion.div
                                         layoutId="nav-active"
                                         className="absolute inset-0 bg-primary rounded-full -z-20"
@@ -140,7 +140,7 @@ function MobileLink({ href, onOpenChange, className, children, ...props }: Mobil
             }}
             className={cn(
                 "text-foreground/70 transition-colors hover:text-foreground",
-                pathname === href && "text-foreground font-bold",
+                (href === "/" ? pathname === href : pathname.startsWith(href as string)) && "text-foreground font-bold",
                 className,
             )}
             {...props}

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ArrowLeft, Clock } from "lucide-react"
 import Link from "next/link"
+import { BlogShareButton } from "@/components/blog-share-button"
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -21,7 +22,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     notFound()
   }
 
-  const otherPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3)
+  const otherPosts = [...blogPosts]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .filter((p) => p.slug !== slug)
+    .slice(0, 2)
 
   return (
     <div className="min-h-screen bg-background pb-32 pt-24 md:pt-32">
@@ -64,10 +68,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               </div>
 
               <div className="hidden sm:flex gap-4">
-                {/* Placeholder for share buttons/actions if needed */}
-                <Button variant="ghost" size="icon" className="rounded-full text-muted-foreground hover:text-primary">
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
-                </Button>
+                <BlogShareButton title={post.title} slug={post.slug} />
               </div>
             </div>
           </div>
@@ -85,12 +86,20 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
           {/* Article Content */}
           <article className="prose prose-stone dark:prose-invert max-w-none">
-            <div className="text-2xl md:text-3xl text-foreground font-serif leading-relaxed mb-12 opacity-80">
+            <div className="text-2xl md:text-3xl text-foreground font-serif leading-relaxed mb-12 border-l-4 border-primary/20 pl-8 italic">
               {post.excerpt}
             </div>
 
             <div
-              className="prose-h2:text-4xl prose-h2:font-serif prose-h2:tracking-tight prose-h2:mt-16 prose-h2:mb-8 prose-p:text-xl prose-p:leading-[1.85] prose-p:text-muted-foreground prose-p:mb-8"
+              className="
+                prose-h2:text-4xl prose-h2:font-serif prose-h2:tracking-tight prose-h2:mt-20 prose-h2:mb-8 
+                prose-h3:text-2xl prose-h3:font-serif prose-h3:tracking-tight prose-h3:mt-12 prose-h3:mb-6
+                prose-p:text-xl prose-p:leading-[1.9] prose-p:text-muted-foreground/90 prose-p:mb-8
+                prose-strong:text-foreground prose-strong:font-bold
+                prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-8
+                prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-8
+                prose-li:text-xl prose-li:leading-[1.9] prose-li:text-muted-foreground/90 prose-li:mb-4
+              "
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </article>

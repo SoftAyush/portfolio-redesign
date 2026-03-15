@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import type React from "react"
 import { Footer } from "@/components/footer"
+import { Toaster } from "@/components/ui/sonner"
 import './globals.css'
 
 const inter = Inter({ subsets: ["latin"] })
@@ -28,6 +29,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1 pt-4 md:pt-8">{children}</main>
             <Footer />
+            <Toaster />
           </div>
         </ThemeProvider>
       </body>

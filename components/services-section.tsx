@@ -1,7 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Smartphone, Layout, Lightbulb, Code2 } from "lucide-react"
+import {motion} from "framer-motion"
+import {Smartphone, Layout, Lightbulb, Code2} from "lucide-react"
 
 const services = [
     {
@@ -14,7 +14,7 @@ const services = [
         title: "UI/UX Architecture",
         description: "Designing intuitive user flows and high-fidelity interfaces that prioritize conversion.",
         icon: Layout,
-        tags: ["Figma", "Prototyping", "Design Systems"]
+        tags: ["Flutter Flow", "Prototyping", "Design Systems"]
     },
     {
         title: "Technical Consultation",
@@ -50,14 +50,15 @@ export function ServicesSection() {
                     {services.map((service, index) => (
                         <motion.div
                             key={service.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            initial={{opacity: 0, y: 20}}
+                            whileInView={{opacity: 1, y: 0}}
+                            viewport={{once: true}}
+                            transition={{delay: index * 0.1}}
                             className="p-8 rounded-[2rem] bg-background border border-border/50 hover:border-primary/50 transition-colors group"
                         >
-                            <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                                <service.icon className="h-6 w-6" />
+                            <div
+                                className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                                <service.icon className="h-6 w-6"/>
                             </div>
                             <h3 className="text-xl font-bold mb-4">{service.title}</h3>
                             <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
@@ -65,7 +66,8 @@ export function ServicesSection() {
                             </p>
                             <div className="flex flex-wrap gap-2">
                                 {service.tags.map((tag) => (
-                                    <span key={tag} className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground bg-muted px-2 py-1 rounded-md">
+                                    <span key={tag}
+                                          className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground bg-muted px-2 py-1 rounded-md">
                                         {tag}
                                     </span>
                                 ))}

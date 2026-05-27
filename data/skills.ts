@@ -25,6 +25,9 @@ export const skillCategories: SkillCategory[] = [
         skills: [
             "Vanilla JavaScript",
             "PHP",
+            "Nest Js",
+            "Mongo DB",
+            "Node Js",
             "Laravel",
             "MSSQL/MYSQL",
             "HTML",

@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ImageWithFallback } from "@/components/ui/image-with-fallback"
+import { yearsOfExperience } from "@/lib/site"
 
 export function AboutSection() {
   return (
@@ -41,12 +42,12 @@ export function AboutSection() {
               <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-4 block">
                 The Persona
               </span>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
                 Engineering <br />
                 With Precision.
-              </h2>
+              </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                I am a specialized Mobile Engineer with over 2 years of experience in crafting high-end digital experiences. My approach blends technical excellence with deep appreciation for design aesthetics.
+                I am a specialized Mobile Engineer with over {yearsOfExperience()} years of experience in crafting high-end digital experiences. My approach blends technical excellence with deep appreciation for design aesthetics.
               </p>
             </div>
 

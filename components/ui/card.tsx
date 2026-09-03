@@ -31,9 +31,15 @@ CardHeader.displayName = "CardHeader"
 
 const CardTitle = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
+  React.HTMLAttributes<HTMLDivElement> & {
+    /**
+     * Element to render as. Defaults to a div; pass a heading level where the
+     * card title is real page content, so it appears in the document outline.
+     */
+    as?: "div" | "h2" | "h3" | "h4"
+  }
+>(({ className, as: Comp = "div", ...props }, ref) => (
+  <Comp
     ref={ref}
     className={cn(
       "text-2xl font-semibold leading-none tracking-tight",

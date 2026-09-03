@@ -5,6 +5,7 @@ import {motion} from "framer-motion"
 import {ArrowRight, Download, Mail} from "lucide-react"
 import Link from "next/link"
 import {ImageWithFallback} from "@/components/ui/image-with-fallback"
+import {yearsOfExperience} from "@/lib/site"
 
 export function Hero() {
     const handleDownloadCV = () => {
@@ -16,9 +17,7 @@ export function Hero() {
         document.body.removeChild(link)
 
     }
-    const startYear = 2023;
-    const currentYear = new Date().getFullYear();
-    const experience = currentYear - startYear;
+    const experience = yearsOfExperience()
 
     return (
         <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden">
@@ -30,13 +29,13 @@ export function Hero() {
                         initial={{opacity: 0, y: 30}}
                         animate={{opacity: 1, y: 0}}
                         transition={{duration: 0.8}}
-                        className="flex flex-col gap-8"
+                        className="flex flex-col gap-8 min-w-0"
                     >
                         <div>
                             <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-4 block">
                                 Available for Projects
                             </span>
-                            <h1 className="text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter uppercase mb-6">
+                            <h1 className="text-[clamp(2.25rem,12vw,3.75rem)] md:text-8xl font-bold leading-[0.9] tracking-tighter uppercase mb-6">
                                 Ayush <br/>
                                 <span className="text-muted-foreground/40">Timalsina.</span>
                             </h1>

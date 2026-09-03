@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { blogPosts } from "@/data/blog-posts"
 import { notFound } from "next/navigation"
@@ -7,11 +8,34 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ArrowLeft, Clock } from "lucide-react"
 import Link from "next/link"
 import { BlogShareButton } from "@/components/blog-share-button"
+import { JsonLd } from "@/components/json-ld"
+import { blogPostingSchema, breadcrumbSchema, graph } from "@/lib/schema"
+import { pageMetadata } from "@/lib/metadata"
+import { countWords, readingTimeLabel } from "@/lib/reading-time"
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
   }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = blogPosts.find((post) => post.slug === slug)
+
+  if (!post) {
+    return { title: "Article not found", robots: { index: false, follow: true } }
+  }
+
+  return pageMetadata({
+    title: post.title,
+    description: post.excerpt,
+    path: `/blog/${post.slug}`,
+    image: post.image,
+    type: "article",
+    publishedTime: post.date,
+    section: post.category,
+  })
 }
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
@@ -22,6 +46,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     notFound()
   }
 
+  const wordCount = countWords(post.content)
+
   const otherPosts = [...blogPosts]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .filter((p) => p.slug !== slug)
@@ -29,6 +55,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <div className="min-h-screen bg-background pb-32 pt-24 md:pt-32">
+      <JsonLd
+        schema={graph(
+          blogPostingSchema({ ...post, wordCount }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Journal", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        )}
+      />
       <div className="container px-4 md:px-6 mx-auto">
         <div className="max-w-[740px] mx-auto">
           {/* Back Navigation */}
@@ -61,7 +97,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                     <span className="h-1 w-1 rounded-full bg-border" />
                     <div className="flex items-center gap-1.5">
-                      <Clock className="h-3 w-3" /> 5 min read
+                      <Clock className="h-3 w-3" /> {readingTimeLabel(post.content)}
                     </div>
                   </div>
                 </div>

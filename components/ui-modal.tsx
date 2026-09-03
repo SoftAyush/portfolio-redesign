@@ -24,7 +24,10 @@ interface UIModalProps {
 export function UIModal({ isOpen, onClose, title, images }: UIModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-7xl max-h-[90vh] rounded-[2rem]">
+      {/* overflow-y-auto is the safety net: on short viewports (landscape phones)
+          the header, carousel and pagination can exceed 90vh, and without it the
+          overspill is silently clipped rather than scrollable. */}
+      <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto rounded-3xl sm:rounded-[2rem] p-4 sm:p-6">
         <DialogHeader>
           <DialogTitle>{title} UI</DialogTitle>
         </DialogHeader>
@@ -32,7 +35,7 @@ export function UIModal({ isOpen, onClose, title, images }: UIModalProps) {
           modules={[Navigation, Pagination]}
           navigation
           pagination={{ clickable: true, el: ".swiper-pagination", }}
-          className="w-full h-[65vh] min-h-[320px]"
+          className="w-full h-[55vh] min-h-[200px] sm:h-[60vh] sm:min-h-[280px] lg:h-[65vh]"
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>

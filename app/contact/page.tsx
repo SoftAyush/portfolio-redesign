@@ -59,13 +59,13 @@ export default function ContactPage() {
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="flex flex-col justify-between py-4"
+                        className="flex flex-col justify-between py-4 min-w-0"
                     >
                         <div>
                             <span className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-6 block">
                                 Initiate Collaboration
                             </span>
-                            <h1 className="text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter uppercase mb-12">
+                            <h1 className="text-[clamp(2.25rem,12vw,3.75rem)] md:text-8xl font-bold leading-[0.9] tracking-tighter uppercase mb-12">
                                 Start your <br />
                                 <span className="text-muted-foreground/30">Project.</span>
                             </h1>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                                 <div className="space-y-2">
                                     <p className="text-sm font-bold uppercase tracking-widest text-primary">Email Official</p>
-                                    <a href="mailto:ayushtimalsina2002@gmail.com" className="text-xl font-bold hover:text-primary transition-colors block">
+                                    <a href="mailto:ayushtimalsina2002@gmail.com" className="text-lg sm:text-xl font-bold hover:text-primary transition-colors block break-all">
                                         ayushtimalsina2002@gmail.com
                                     </a>
                                 </div>
@@ -91,7 +91,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            <div className="p-10 rounded-[2.5rem] bg-muted/30 border-2 border-dashed border-border/50">
+                            <div className="p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-muted/30 border-2 border-dashed border-border/50">
                                 <p className="text-lg text-muted-foreground leading-relaxed italic">
                                     &ldquo;I specialize in taking complex requirements and turning them into seamless mobile experiences. Whether you have a full brief or just an idea, let&apos;s build it correctly from day one.&rdquo;
                                 </p>
@@ -104,7 +104,7 @@ export default function ContactPage() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <Card className="h-full border-border/50 bg-background rounded-[3rem] p-10 md:p-16 shadow-2xl">
+                        <Card className="h-full border-border/50 bg-background rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 md:p-16 shadow-2xl">
                             <form onSubmit={handleSubmit} className="flex flex-col h-full gap-10">
                                 <div className="space-y-10">
                                     <div className="space-y-2">

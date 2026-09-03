@@ -1,5 +1,13 @@
+import { pageMetadata } from "@/lib/metadata"
 import { ProjectGrid } from "@/components/project-grid"
 import { ProjectFilters } from "@/components/project-filters"
+
+export const metadata = pageMetadata({
+  title: "Mobile App Portfolio",
+  description:
+    "Selected projects — Flutter apps, Kotlin Multiplatform tooling, native Android builds and published Dart packages, with the architecture behind each one.",
+  path: "/portfolio",
+})
 
 export default function PortfolioPage() {
   return (

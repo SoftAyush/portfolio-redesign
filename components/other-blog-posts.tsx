@@ -8,6 +8,7 @@ interface OtherBlogPostsProps {
     category: string
     excerpt: string
     image: string
+    content: string
   }[]
 }
 

@@ -1,0 +1,35 @@
+# Ayush Timalsina
+
+> Mobile engineer based in Lalitpur, Nepal, building Flutter, Kotlin Multiplatform
+> and native Android applications. Publishes open-source Dart packages and writes
+> about mobile architecture.
+
+Specialisms: Flutter, Dart, Kotlin Multiplatform (KMP), Kotlin, native Android,
+Jetpack Compose, offline-first architecture, mobile UI/UX.
+
+Available for freelance and contract work.
+
+## Pages
+
+- [Portfolio](https://ayushtimalsina.com.np/portfolio): Mobile and web projects — Flutter apps, Kotlin Multiplatform tooling, native Android builds and published Dart packages.
+- [About](https://ayushtimalsina.com.np/about): Background, skills, education and work experience.
+- [Journal](https://ayushtimalsina.com.np/blog): Writing on mobile architecture and cross-platform trade-offs.
+- [Common Questions](https://ayushtimalsina.com.np/faq): Services offered, technologies used, Flutter versus Kotlin Multiplatform, working with existing apps, and how to start a project.
+- [Contact](https://ayushtimalsina.com.np/contact): Project enquiries.
+
+## Writing
+
+- [The Shift to Kotlin Multiplatform (KMP): Why It's Reshaping Mobile Strategy](https://ayushtimalsina.com.np/blog/shift-to-kotlin-multiplatform-kmp): Why KMP shares business logic rather than UI, and what that means for native performance and gradual migration.
+- [Flutter vs. Kotlin Multiplatform: Choosing the Right Weapon for 2025](https://ayushtimalsina.com.np/blog/flutter-vs-kotlin-multiplatform): Share the UI or share the logic — the architectural trade-off between the two approaches.
+- [Mastering Multi-Selection in Flutter](https://ayushtimalsina.com.np/blog/mastering-multi-selection-in-flutter-flutter-multi-selector): Search, select-all and form validation in the flutter_multi_selector package.
+- [Jetpack Compose 2026: The Definitive Roadmap for Modern Android Development](https://ayushtimalsina.com.np/blog/jetpack-compose-roadmap-2026): State management, layouts and release practices for Compose.
+
+## Open source
+
+- [flutter_multi_selector](https://pub.dev/packages/flutter_multi_selector): Published Flutter package providing a customizable multi-selection dialog with search, select-all, chip and checkbox styles, per-item theming and form validation.
+- [pub.dev publisher](https://pub.dev/publishers/ayushtimalsina.com.np/packages): All published Dart and Flutter packages.
+
+## Elsewhere
+
+- [GitHub](https://github.com/SoftAyush)
+- [LinkedIn](https://linkedin.com/in/aayush-timalsina-221683309)

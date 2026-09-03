@@ -23,14 +23,18 @@ export function BlogList() {
 
   return (
     <div className="space-y-16 py-20">
-      <div className="flex flex-col md:flex-row gap-8 items-end justify-between border-b border-border/50 pb-12">
+      {/*
+        * Splits to a row only at lg: at md the heading (max-w-md) plus the two
+        * fixed-width filters need ~944px, which overflows a 768px viewport.
+        */}
+      <div className="flex flex-col lg:flex-row gap-8 lg:items-end justify-between border-b border-border/50 pb-12">
         <div className="max-w-md w-full space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight uppercase">Journal.</h1>
           <p className="text-muted-foreground text-lg">Insights on mobile engineering, design systems, and product strategy.</p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-          <div className="flex-1 sm:w-64">
+        <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto lg:min-w-[26rem]">
+          <div className="flex-1 min-w-0">
             <Label htmlFor="search" className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block">Search Articles</Label>
             <Input
               id="search"
@@ -40,7 +44,7 @@ export function BlogList() {
               className="h-12 rounded-xl bg-muted/50 border-none px-4 focus-visible:ring-primary"
             />
           </div>
-          <div className="w-full sm:w-48">
+          <div className="w-full sm:w-48 sm:shrink-0">
             <Label htmlFor="category" className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2 block">Industry</Label>
             <Select value={selectedCategory} onValueChange={setSelectedCategory}>
               <SelectTrigger id="category" className="h-12 rounded-xl bg-muted/50 border-none px-4 focus:ring-primary">

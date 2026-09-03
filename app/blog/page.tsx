@@ -1,5 +1,12 @@
+import { pageMetadata } from "@/lib/metadata"
 import { BlogList } from "@/components/blog-list"
-import { blogPosts } from "@/data/blog-posts"
+
+export const metadata = pageMetadata({
+  title: "Mobile Engineering Journal",
+  description:
+    "Writing on mobile architecture: Kotlin Multiplatform, Flutter, Jetpack Compose and the trade-offs behind cross-platform decisions.",
+  path: "/blog",
+})
 
 export default function BlogPage() {
 
@@ -9,4 +16,3 @@ export default function BlogPage() {
     </div>
   )
 }
-

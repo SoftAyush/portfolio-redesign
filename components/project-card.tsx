@@ -37,7 +37,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                         </Badge>
                     ))}
                 </div>
-                <CardTitle className="text-3xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</CardTitle>
+                <CardTitle as="h2" className="text-3xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</CardTitle>
                 <CardDescription className="text-muted-foreground text-lg leading-relaxed line-clamp-2">
                     {project.description}
                 </CardDescription>

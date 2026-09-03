@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
 import { ImageWithFallback } from "@/components/ui/image-with-fallback"
+import { readingTimeLabel } from "@/lib/reading-time"
 
 interface BlogPostProps {
   post: {
@@ -13,6 +14,7 @@ interface BlogPostProps {
     category: string
     excerpt: string
     image: string
+    content: string
   }
 }
 
@@ -39,7 +41,7 @@ export function BlogPost({ post }: BlogPostProps) {
           <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">
             <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
             <span className="h-1 w-1 rounded-full bg-primary/20" />
-            <span>5 min read</span>
+            <span>{readingTimeLabel(post.content)}</span>
           </div>
 
           <h3 className="text-2xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">

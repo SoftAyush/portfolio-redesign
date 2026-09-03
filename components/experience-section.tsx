@@ -21,7 +21,7 @@ export function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 font-serif italic"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-8 font-serif italic"
           >
             Professional Trajectory.
           </motion.h2>

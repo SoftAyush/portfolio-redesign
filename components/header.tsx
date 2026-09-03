@@ -26,7 +26,7 @@ export function Header() {
 
     return (
         <header className="fixed top-6 left-0 right-0 z-50 mx-auto w-[95%] md:w-full max-w-5xl">
-            <div className="glass rounded-full px-6 py-2 border border-white/10 shadow-2xl">
+            <div className="glass-nav rounded-full px-6 py-2 shadow-2xl">
                 <div className="flex h-12 md:h-14 items-center justify-between">
                     <div className="flex items-center">
                         <Sheet open={isOpen} onOpenChange={setIsOpen}>

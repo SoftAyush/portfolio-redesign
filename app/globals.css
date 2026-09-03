@@ -73,7 +73,16 @@
   }
 
   .glass {
-    @apply bg-background/60 backdrop-blur-xl border border-border/50 shadow-2xl;
+    @apply bg-background/80 backdrop-blur-xl backdrop-saturate-150 border border-border/50 shadow-2xl;
+  }
+
+  /*
+   * The header floats over arbitrary page content, so it needs a more opaque
+   * plate than the decorative .glass panels or the links lose contrast against
+   * whatever image happens to scroll underneath.
+   */
+  .glass-nav {
+    @apply bg-background/95 supports-[backdrop-filter]:bg-background/85 backdrop-blur-2xl backdrop-saturate-150 border border-border/50 shadow-2xl;
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -119,22 +128,21 @@
   animation-play-state: paused;
 }
 
-.swiper-pagination-bullet {
-  background: #d1d0d0 !important;
-  opacity: 0.7 !important;
-}
-
-.swiper-pagination-bullet-active {
-  background: #2d64db !important;
-  opacity: 1 !important;
+/*
+ * Swiper controls follow the theme tokens so they stay legible in both modes.
+ * Swiper draws the navigation arrow as an inline SVG, so it has to be coloured
+ * through its own custom properties rather than a ::after rule.
+ */
+/* Declared at the root because the pagination element lives outside .swiper. */
+:root {
+  --swiper-theme-color: hsl(var(--foreground));
+  --swiper-navigation-color: hsl(var(--foreground));
+  --swiper-navigation-size: 1.75rem;
+  --swiper-pagination-color: hsl(var(--foreground));
+  --swiper-pagination-bullet-inactive-color: hsl(var(--muted-foreground));
+  --swiper-pagination-bullet-inactive-opacity: 0.4;
 }
 
 .swiper-pagination {
   bottom: 0px !important;
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  color: #fff !important;
-  font-size: 2rem !important;
 }

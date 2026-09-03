@@ -6,7 +6,7 @@ export const projects: Project[] = [
         title: "Aapanam",
         description: "Aapanam is a modern, cross-platform inventory and sales management system built with Kotlin Multiplatform. It aims to provide a seamless experience for managing products, tracking sales, and handling credit accounts across various platforms.",
         type: "Native Android",
-        image: "/assets/portfolio/Aapanam/logo.avif",
+        image: "/assets/portfolio/Aapanam/feature_graphic.avif",
         technologies: ["Kotlin", "MVVM", 'SQLDelight', 'FireBase', 'Compose Multiplatform'],
         features: [
             "Inventory management with product add/edit/delete, stock tracking, and category organization",
@@ -46,7 +46,7 @@ export const projects: Project[] = [
         description: "It is a powerful Flutter package that provides an intuitive multi-selection\n" +
             "dialog with advanced customization options.",
         type: "Flutter",
-        image: "/assets/portfolio/Package/flutterMultiSelector.avif",
+        image: "/assets/portfolio/Package/feature_graphic.avif",
         technologies: ["Flutter", "Dart", 'Package'],
         features: [
             "Custom multi-select dialog field widget",
@@ -74,40 +74,73 @@ export const projects: Project[] = [
     },
     {
         id: "4",
-        title: "Kosh-Guard",
-        description: "A personal finance management app that helps users track income, expenses, and savings, providing insights for better financial control and planning.",
+        title: "Jinmo",
+        description:
+            "Jinmo is a modern personal finance and expense management application designed to help users take control of their finances. It provides a simple and intuitive experience for managing wallets, tracking income and expenses, monitoring transactions, and customizing financial preferences.",
         type: "Flutter",
-        image: "/assets/portfolio/app-1.avif",
-        technologies: ["Flutter", "Dart", "Isar", "Provider", 'FireBase'],
-        features: [
-            "Track and manage income and expenses",
-            "Categorize transactions for better insights",
-            "Generate detailed financial reports",
-            "User-friendly dashboard for easy navigation"
+        image: "/assets/portfolio/Jinmo/feature_graphic.avif",
+        technologies: [
+            "Flutter",
+            "Dart",
+            "Isar",
+            "Material Design",
+            "Offline-First Architecture",
+            "Local Storage"
         ],
-        github: "https://github.com/SoftAyush/Kosh-Guard",
+        features: [
+            "Personal finance management with an easy-to-use dashboard",
+            "Wallet management with support for initial balances and different account types",
+            "Track income and expenses with a clear financial overview",
+            "Monitor recent transactions and financial activity",
+            "Support for multiple currencies including Nepalese Rupee (NPR)",
+            "Customizable expense and income categories",
+            "Draft transaction management",
+            "Light, dark, and system theme support",
+            "Offline-first architecture with local data storage",
+            "Clean and responsive Material Design interface"
+        ],
+        github: null,
         uiImages: [
             {
-                src: "/assets/portfolio/app-1.avif",
-                caption: "Login Page of KoshGuard Mobile Application.",
+                src: "/assets/portfolio/Jinmo/Welcome.avif",
+                caption:
+                    "A welcoming onboarding experience designed to introduce users to Jinmo with a clean and engaging interface.",
             },
-            // {
-            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
-            //     caption: "Workout tracking interface",
-            // },
-            // {
-            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
-            //     caption: "Nutrition logging and analysis",
-            // },
+            {
+                src: "/assets/portfolio/Jinmo/GetStarted.avif",
+                caption:
+                    "A simple onboarding step that helps users get started and take control of their personal finances.",
+            },
+            {
+                src: "/assets/portfolio/Jinmo/ProfileSetup.avif",
+                caption:
+                    "Personalize the experience by setting up your name and preferred currency with a simple guided setup.",
+            },
+            {
+                src: "/assets/portfolio/Jinmo/WalletSetup.avif",
+                caption:
+                    "Create your first wallet by defining the account name, initial balance, and account type.",
+            },
+            {
+                src: "/assets/portfolio/Jinmo/Dashboard.avif",
+                caption:
+                    "A clean financial dashboard providing a quick overview of wallet balance, income, expenses, accounts, and recent activity.",
+            },
+            {
+                src: "/assets/portfolio/Jinmo/Settings.avif",
+                caption:
+                    "A centralized settings experience for managing profile preferences, themes, currency, categories, and transaction settings.",
+            },
         ],
-        liveDemo: null,
+        liveDemo:
+            "https://play.google.com/store/apps/details?id=com.jinmo.app&hl=en",
     },
     {
         id: "3",
         title: "Banter",
         description: "A social messaging app that enables users to connect, chat, and share moments seamlessly with a secure and interactive experience.",
         type: "Native Android",
-        image: "/assets/portfolio/App.avif",
+        image: "/assets/portfolio/Banter/feature_graphic.avif",
         technologies: ["Java Native", "xml", 'FireBase'],
         features: [
             "Real-time messaging with friends",
@@ -120,17 +153,21 @@ export const projects: Project[] = [
         github: "https://github.com/SoftAyush/Banter",
         uiImages: [
             {
-                src: "/assets/portfolio/App.avif",
-                caption: "Dashboard with daily activity summary",
+                src: "/assets/portfolio/Banter/login.avif",
+                caption: "Secure and modern login experience for Banter",
             },
-            // {
-            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Workout",
-            //     caption: "Workout tracking interface",
-            // },
-            // {
-            //     src: "/placeholder.svg?height=600&width=400&text=FitTrack+Nutrition",
-            //     caption: "Nutrition logging and analysis",
-            // },
+            {
+                src: "/assets/portfolio/Banter/Dashbaord.avif",
+                caption: "Real-time chat dashboard with conversations and messages",
+            },
+            {
+                src: "/assets/portfolio/Banter/status.avif",
+                caption: "Share and explore status updates with friends",
+            },
+            {
+                src: "/assets/portfolio/Banter/profile.avif",
+                caption: "Personal profile, account settings, and app preferences",
+            },
         ],
         liveDemo: null,
     },

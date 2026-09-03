@@ -1,13 +1,12 @@
 "use client"
 
-import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { GithubIcon, Eye, ExternalLink } from "lucide-react";
 import type { Project } from "@/types/project"
 import { useState } from "react"
-import { Skeleton } from "@/components/ui/skeleton"
+import { ImageWithFallback } from "@/components/ui/image-with-fallback"
 import { UIModal } from "@/components/ui-modal"
 
 interface ProjectCardProps {
@@ -15,19 +14,17 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-    const [imageLoaded, setImageLoaded] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     return (
         <Card className="group overflow-hidden border-border/50 bg-background hover:border-primary/50 transition-all duration-500 rounded-[2rem]">
-            <div className="relative aspect-video overflow-hidden">
-                {!imageLoaded && <Skeleton className="absolute inset-0" />}
-                <Image
+            <div className="relative aspect-video overflow-hidden bg-muted/30">
+                <ImageWithFallback
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    onLoad={() => setImageLoaded(true)}
+                    className="object-contain transition-transform duration-700 group-hover:scale-105"
+                    fallbackLabel={project.title}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>

@@ -3,14 +3,10 @@
 import {Button} from "@/components/ui/button"
 import {motion} from "framer-motion"
 import {ArrowRight, Download, Mail} from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
-import {useState} from "react"
-import {Skeleton} from "@/components/ui/skeleton"
+import {ImageWithFallback} from "@/components/ui/image-with-fallback"
 
 export function Hero() {
-    const [imageLoaded, setImageLoaded] = useState(false)
-
     const handleDownloadCV = () => {
         const link = document.createElement("a")
         link.href = "/assets/Ayush-Timalsina-Resume.pdf"
@@ -92,14 +88,13 @@ export function Hero() {
                     >
                         <div
                             className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[3rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 bg-muted shadow-2xl">
-                            {!imageLoaded && <Skeleton className="absolute inset-0"/>}
-                            <Image
+                            <ImageWithFallback
                                 src="/assets/Aayush.jpg"
                                 alt="Ayush Timalsina"
                                 fill
                                 className="object-cover"
                                 priority
-                                onLoad={() => setImageLoaded(true)}
+                                fallbackLabel="Portrait unavailable"
                             />
                         </div>
 

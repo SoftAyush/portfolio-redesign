@@ -1,15 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { useState } from "react"
-import { Skeleton } from "@/components/ui/skeleton"
+import { ImageWithFallback } from "@/components/ui/image-with-fallback"
 
 export function AboutSection() {
-  const [imageLoaded, setImageLoaded] = useState(false)
-
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="container px-4 md:px-6 lg:px-8 mx-auto">
@@ -23,13 +19,12 @@ export function AboutSection() {
             className="relative"
           >
             <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-muted shadow-2xl">
-              {!imageLoaded && <Skeleton className="absolute inset-0" />}
-              <Image
+              <ImageWithFallback
                 src="/assets/Aayush.jpg"
                 alt="Ayush Timalsina - Personal Portrait"
                 fill
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-                onLoad={() => setImageLoaded(true)}
+                fallbackLabel="Portrait unavailable"
               />
             </div>
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />

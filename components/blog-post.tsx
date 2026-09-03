@@ -1,11 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
-import { Skeleton } from "@/components/ui/skeleton"
+import { ImageWithFallback } from "@/components/ui/image-with-fallback"
 
 interface BlogPostProps {
   post: {
@@ -19,19 +17,16 @@ interface BlogPostProps {
 }
 
 export function BlogPost({ post }: BlogPostProps) {
-  const [imageLoaded, setImageLoaded] = useState(false)
-
   return (
     <Link href={`/blog/${post.slug}`} className="group block">
       <article className="space-y-6">
         <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] bg-muted shadow-lg">
-          {!imageLoaded && <Skeleton className="absolute inset-0" />}
-          <Image
+          <ImageWithFallback
             src={post.image || "/placeholder.svg"}
             alt={post.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
-            onLoad={() => setImageLoaded(true)}
+            fallbackLabel={post.category}
           />
           <div className="absolute top-6 left-6">
             <Badge className="bg-background/80 backdrop-blur-md text-foreground border-none px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">

@@ -102,3 +102,36 @@ export function breadcrumbSchema(trail: { name: string; path: string }[]) {
 export function graph(...nodes: object[]) {
     return { "@context": "https://schema.org", "@graph": nodes }
 }
+
+interface ProjectInput {
+    slug: string
+    title: string
+    description: string
+    type: "Flutter" | "Native Android" | "Web"
+    image: string
+    technologies: string[]
+    github?: string | null
+    liveDemo?: string | null
+}
+
+export function softwareApplicationSchema(project: ProjectInput) {
+    const pageUrl = `${siteConfig.url}/portfolio/${project.slug}`
+    const isWeb = project.type === "Web"
+    return {
+        "@type": isWeb ? "WebApplication" : "MobileApplication",
+        "@id": `${pageUrl}#software`,
+        name: project.title,
+        description: project.description,
+        image: absoluteUrl(project.image),
+        url: pageUrl,
+        applicationCategory: isWeb ? "WebApplication" : "MobileApplication",
+        operatingSystem: isWeb ? "Any" : "Android",
+        keywords: project.technologies.join(", "),
+        author: { "@id": PERSON_ID },
+        creator: { "@id": PERSON_ID },
+        isPartOf: { "@id": WEBSITE_ID },
+        mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+        ...(project.github ? { codeRepository: project.github } : {}),
+        ...(project.liveDemo ? { installUrl: project.liveDemo } : {}),
+    }
+}

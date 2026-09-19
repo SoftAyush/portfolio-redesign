@@ -24,6 +24,7 @@ export function AboutSection() {
                 src="/assets/Aayush.jpg"
                 alt="Ayush Timalsina - Personal Portrait"
                 fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                 fallbackLabel="Portrait unavailable"
               />

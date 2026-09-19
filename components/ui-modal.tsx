@@ -1,5 +1,5 @@
 "use client"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination } from "swiper/modules"
 import { ImageWithFallback } from "@/components/ui/image-with-fallback"
@@ -19,9 +19,11 @@ interface UIModalProps {
   onClose: () => void
   title: string
   images: UIImage[]
+  /** Slide to open on, so a tapped thumbnail shows that screen first. */
+  initialSlide?: number
 }
 
-export function UIModal({ isOpen, onClose, title, images }: UIModalProps) {
+export function UIModal({ isOpen, onClose, title, images, initialSlide = 0 }: UIModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       {/* overflow-y-auto is the safety net: on short viewports (landscape phones)
@@ -30,10 +32,14 @@ export function UIModal({ isOpen, onClose, title, images }: UIModalProps) {
       <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto rounded-3xl sm:rounded-[2rem] p-4 sm:p-6">
         <DialogHeader>
           <DialogTitle>{title} UI</DialogTitle>
+          <DialogDescription className="sr-only">
+            Screenshot gallery for {title}. Use the arrows or pagination dots to move between screens.
+          </DialogDescription>
         </DialogHeader>
         <Swiper
           modules={[Navigation, Pagination]}
           navigation
+          initialSlide={initialSlide}
           pagination={{ clickable: true, el: ".swiper-pagination", }}
           className="w-full h-[55vh] min-h-[200px] sm:h-[60vh] sm:min-h-[280px] lg:h-[65vh]"
         >
@@ -46,6 +52,7 @@ export function UIModal({ isOpen, onClose, title, images }: UIModalProps) {
                     src={image.src || "/placeholder.svg"}
                     alt={`${title} UI ${index + 1}`}
                     fill
+                    sizes="100vw"
                     className="object-contain"
                     fallbackLabel={`Screen ${index + 1} unavailable`}
                   />

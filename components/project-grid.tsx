@@ -20,7 +20,7 @@ export function ProjectGrid() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: index * 0.1 }}
         >
-          <ProjectCard project={project} />
+          <ProjectCard project={project} priority={index === 0} />
         </motion.div>
       ))}
     </div>

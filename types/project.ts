@@ -1,5 +1,7 @@
 export interface Project {
   id: string
+  /** URL segment for the detail page: /portfolio/[slug] */
+  slug: string
   title: string
   description: string
   type: "Flutter" | "Native Android" | "Web"

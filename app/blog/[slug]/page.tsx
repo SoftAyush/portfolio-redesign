@@ -115,6 +115,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               src={post.image || "/placeholder.svg"}
               alt={post.title}
               fill
+              sizes="(min-width: 768px) 740px, 100vw"
               className="object-cover"
               priority
             />
@@ -161,7 +162,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   {otherPosts.map((other) => (
                     <Link key={other.slug} href={`/blog/${other.slug}`} className="group space-y-4 block">
                       <div className="relative aspect-video rounded-3xl overflow-hidden bg-muted">
-                        <Image src={other.image || "/placeholder.svg"} alt={other.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                        <Image src={other.image || "/placeholder.svg"} alt={other.title} fill sizes="(min-width: 640px) 33vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                       </div>
                       <h5 className="font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
                         {other.title}

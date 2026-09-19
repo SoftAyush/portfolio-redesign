@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { blogPosts } from "@/data/blog-posts"
+import { projects } from "@/data/projects"
 import { siteConfig } from "@/lib/site"
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -21,5 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
     }))
 
-    return [...staticRoutes, ...postRoutes]
+    const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
+        url: `${siteConfig.url}/portfolio/${project.slug}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.7,
+    }))
+
+    return [...staticRoutes, ...projectRoutes, ...postRoutes]
 }

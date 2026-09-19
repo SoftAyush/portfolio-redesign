@@ -1,28 +1,40 @@
 "use client"
 
+import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { GithubIcon, Eye, ExternalLink } from "lucide-react";
+import { GithubIcon, ExternalLink, ArrowUpRight } from "lucide-react"
 import type { Project } from "@/types/project"
-import { useState } from "react"
 import { ImageWithFallback } from "@/components/ui/image-with-fallback"
-import { UIModal } from "@/components/ui-modal"
 
 interface ProjectCardProps {
     project: Project
+    /** Eagerly load the image — set on the first card, which is the page LCP. */
+    priority?: boolean
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+export function ProjectCard({ project, priority = false }: ProjectCardProps) {
+    const href = `/portfolio/${project.slug}`
 
     return (
-        <Card className="group overflow-hidden border-border/50 bg-background hover:border-primary/50 transition-all duration-500 rounded-[2rem]">
+        // The whole card is one click target for the detail page. A stretched
+        // overlay link (rather than wrapping the card in <a>) keeps the GitHub
+        // and demo buttons as their own valid links, layered above it.
+        <Card className="group relative overflow-hidden border-border/50 bg-background hover:border-primary/50 focus-within:border-primary/50 transition-all duration-500 rounded-[2rem]">
+            <Link
+                href={href}
+                aria-label={`View ${project.title} project details`}
+                className="absolute inset-0 z-10 rounded-[2rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+            />
+
             <div className="relative aspect-video overflow-hidden bg-muted/30">
                 <ImageWithFallback
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    priority={priority}
                     className="object-contain transition-transform duration-700 group-hover:scale-105"
                     fallbackLabel={project.title}
                 />
@@ -54,33 +66,27 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 </ul>
             </CardContent>
 
-            <CardFooter className="p-8 pt-4 gap-3">
-                <Button onClick={() => setIsModalOpen(true)} className="rounded-full px-6 flex-1 md:flex-none">
-                    View Solution
+            <CardFooter className="relative z-20 p-8 pt-4 gap-3">
+                <Button className="rounded-full px-6 flex-1 md:flex-none" asChild>
+                    <Link href={href}>
+                        View Details <ArrowUpRight className="ml-1 h-4 w-4" />
+                    </Link>
                 </Button>
                 {project.github && (
                     <Button variant="outline" className="rounded-full w-12 h-12 p-0" asChild>
-                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} on GitHub`}>
                             <GithubIcon className="h-5 w-5" />
                         </a>
                     </Button>
                 )}
                 {project.liveDemo && (
                     <Button variant="outline" className="rounded-full w-12 h-12 p-0" asChild>
-                        <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">
+                        <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} live demo`}>
                             <ExternalLink className="h-5 w-5" />
                         </a>
                     </Button>
                 )}
             </CardFooter>
-
-            <UIModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                title={project.title}
-                images={project.uiImages}
-            />
         </Card>
     )
 }
-

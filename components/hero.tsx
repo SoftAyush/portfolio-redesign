@@ -91,6 +91,7 @@ export function Hero() {
                                 src="/assets/Aayush.jpg"
                                 alt="Ayush Timalsina"
                                 fill
+                                sizes="(min-width: 448px) 448px, 100vw"
                                 className="object-cover"
                                 priority
                                 fallbackLabel="Portrait unavailable"
